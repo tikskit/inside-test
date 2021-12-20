@@ -4,6 +4,9 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.stereotype.Service;
 
+/**
+ * Реализация сервиса TokenService
+ */
 @Service
 public class TokenServiceImpl implements TokenService {
     private static final String SECRET = "littleyellowguitar";

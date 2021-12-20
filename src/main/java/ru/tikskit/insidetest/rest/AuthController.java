@@ -17,6 +17,9 @@ import ru.tikskit.insidetest.service.TokenService;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Контроллер, реализующий эндпойнты
+ */
 @RestController
 @AllArgsConstructor
 public class AuthController {
@@ -49,6 +52,11 @@ public class AuthController {
         }
     }
 
+    /**
+     * Сохранение сообщения в БД
+     * Выбрасывает исключение UserNotfoundException, если пользователь с именем messageDto.getName не найден в сообщении
+     * @param messageDto сообщение
+     */
     private void storeMessage(MessageDto messageDto) {
         Auth auth = authRepository.findByName(messageDto.getName()).orElseThrow(UserNotfoundException::new);
         Message message = new Message();
